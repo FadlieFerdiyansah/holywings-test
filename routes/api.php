@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\{CategoryController, BookController};
+use App\Http\Controllers\Api\{CategoryController, BookController, LoanController};
 use App\Http\Controllers\Api\Auth\{LoginController, LogoutController, RegisterController};
 
 Route::middleware('guest')->group(function(){
@@ -16,6 +16,7 @@ Route::middleware('auth:sanctum')->group(function(){
 
     Route::apiResource('categories', CategoryController::class);
     Route::apiResource('books', BookController::class);
+    Route::apiResource('loans', LoanController::class);
 
 
     Route::post('logout', LogoutController::class);
