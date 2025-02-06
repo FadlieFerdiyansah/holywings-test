@@ -34,6 +34,10 @@ class CategoryController extends Controller
 
     public function destroy(Category $category)
     {
+        if ($category->books->count()) {
+            return api_response('Cannot delete the category because some books are still using it.', $category->withoutRelations(), 406);
+        }
+
         $category->delete();
 
         return api_response('Category deleted successfully');
