@@ -20,4 +20,9 @@ class Loan extends Model
     {
       return $this->belongsToMany(Book::class, 'loan_books');
     }
+
+    public function returnBooks()
+    {
+      return $this->hasMany(BookReturn::class);
+    }
 }
