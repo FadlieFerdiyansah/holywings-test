@@ -20,6 +20,6 @@ class LoginController extends Controller
             return api_response('username atau password tidak valid.', 401);
         }
     
-        return api_response($user->createToken('token')->plainTextToken);
+        return api_response($user->createToken('token')->plainTextToken, $user);
     }
 }

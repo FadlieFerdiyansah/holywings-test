@@ -23,7 +23,7 @@ class BookStoreRequest extends FormRequest
     {
         return [
             'category_id' => 'required',
-            'title' => 'required',
+            'title' => 'required|unique:books,title',
             'author' => 'required',
             'description' => 'required',
             'year_published' => 'required',
